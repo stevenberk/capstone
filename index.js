@@ -2,30 +2,40 @@ let URL = 'http://data.fixer.io/api/latest?access_key=';
 
 let maindiv = document.querySelector(".apioutput");
 let submitButton = document.querySelector('.submitButton');
-let currenyLog = document.querySelector('.currencyList');
-let valueLog = document.querySelector('.valueList');
+let currencyLog = document.querySelector('.currencyList');
+let entryForm = document.querySelector('.entryform')
 
 
 
-submitButton.addEventListener("click", LogCunch);
+// submitButton.addEventListener('click', function(event) {
+    
+//     console.log(firstForm.value);
+// })
 
-function LogCunch() {
-    if (currenyLog.value == "NULL" || valueLog.value == "NULL"){
+
+submitButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  CalculateRate()
+});
+
+function CalculateRate() {
+    if (currencyLog.value == "NULL" || entryForm.value < 1){
         maindiv.textContent = "Please make a valid selection"
     }else{
         fetch(URL + APIKEY)
         .then(function(response) {return response.json();})
         .then(function(myJson) {
-            let exRate = myJson.rates[currenyLog.value];
+            let exRate = myJson.rates[currencyLog.value];
             //this "if" statment rounds to nearest whole number for currencies that don't use units less than one,
             //and round to two decimal places if units between zero and one are used in practice.
-            if (currenyLog.value == "VND" || 
-            currenyLog.value == "HUF" || 
-            currenyLog.value == "ILS" ||
-            currenyLog.value == "THB"  ){
-                maindiv.textContent = Math.round(exRate * valueLog.value);
+            if (currencyLog.value == "VND" || 
+            currencyLog.value == "HUF" || 
+            currencyLog.value == "ILS" ||
+            currencyLog.value == "THB" ||
+            currencyLog.value == "MMK"){
+                maindiv.textContent = Math.round(exRate * entryForm.value);
             }else{
-            maindiv.textContent = (exRate * valueLog.value).toFixed(2);
+            maindiv.textContent = (exRate * entryForm.value).toFixed(2);
             }
            });
     }
