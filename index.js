@@ -11,13 +11,22 @@ submitButton.addEventListener("click", LogCunch);
 
 function LogCunch() {
     if (currenyLog.value == "NULL" || valueLog.value == "NULL"){
-        console.log('please make a valid selection');
+        maindiv.textContent = "Please make a valid selection"
     }else{
         fetch(URL + APIKEY)
         .then(function(response) {return response.json();})
         .then(function(myJson) {
-            let exRate = myJson.rates[currenyLog.value] ;
-            maindiv.textContent = exRate * valueLog.value;
+            let exRate = myJson.rates[currenyLog.value];
+            //this "if" statment rounds to nearest whole number for currencies that don't use units less than one,
+            //and round to two decimal places if units between zero and one are used in practice.
+            if (currenyLog.value == "VND" || 
+            currenyLog.value == "HUF" || 
+            currenyLog.value == "ILS" ||
+            currenyLog.value == "THB"  ){
+                maindiv.textContent = Math.round(exRate * valueLog.value);
+            }else{
+            maindiv.textContent = (exRate * valueLog.value).toFixed(2);
+            }
            });
     }
 }
