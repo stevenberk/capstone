@@ -35,7 +35,7 @@ function CalculateRate() {
             pushToUserInput(parseFloat(entryForm.value), parseFloat((exRate * entryForm.value).toFixed(2)), currencyLog.value, new Date());
             }
             function pushToUserInput(startingRate, rate, currency, date){
-                    userimput.push(startingRate, rate, currency, date);
+                    userimput.push([startingRate, rate, currency, date]);
                     console.log(userimput);
             }
            });
