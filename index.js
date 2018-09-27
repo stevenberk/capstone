@@ -6,12 +6,7 @@ let currencyLog = document.querySelector('.currencyList');
 let entryForm = document.querySelector('.entryform')
 
 
-
-// submitButton.addEventListener('click', function(event) {
-    
-//     console.log(firstForm.value);
-// })
-
+let userimput = [];
 
 submitButton.addEventListener("click", function(event) {
   event.preventDefault();
@@ -34,8 +29,14 @@ function CalculateRate() {
             currencyLog.value == "THB" ||
             currencyLog.value == "MMK"){
                 maindiv.textContent = Math.round(exRate * entryForm.value);
+            pushToUserInput(parseFloat(entryForm.value), (Math.round(exRate * entryForm.value)), currencyLog.value, new Date());
             }else{
             maindiv.textContent = (exRate * entryForm.value).toFixed(2);
+            pushToUserInput(parseFloat(entryForm.value), parseFloat((exRate * entryForm.value).toFixed(2)), currencyLog.value, new Date());
+            }
+            function pushToUserInput(startingRate, rate, currency, date){
+                    userimput.push(startingRate, rate, currency, date);
+                    console.log(userimput);
             }
            });
     }
