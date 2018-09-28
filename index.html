@@ -10,21 +10,52 @@
 <style>
 body {
     font-family: avenir;
+    display: flex;
+    flex-direction: row;
+   
 }
-
-
+.Buyer {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    margin: .5em;
+}
+.Seller {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    margin: .5em;
+}
+input{
+    width: 100%;
+}
 
 </style>
 <body>
 
-🌈
-<form >
-        <input class="entryform" type="number" min="0" placeholder="Enter value" />
-</form>
-
-
+<div class="Seller">
+    <hi> Post foreign Currency for sale</hi>
+    <select class="sellerLocation">
+        <option value="NULL" selected>Select City</option>
+        <option value="Atlanta">Atlanta</option>
+        <option value="Boston">Boston</option>
+        <option value="Chicago">Chicago</option>
+        <option value="Miami">Miami</option>
+        <option value="Washington DC">Washington DC</option>
+        <option value="Bay Area">Bay Area</option>
+        <option value="New York">New York</option>
+        <option value="Seattle">Seattle</option>
+        <option value="Los Angeles">Los Angeles</option> 
+        <option value="Philadelphia">Philadelphia</option>    
+    </select>
+    <form class="sellerName">
+        <input  type="text"  placeholder="Enter name"/>
+    </form>
+    <form class="sellerContact">
+        <input  type="text"  placeholder="Enter email"/>
+    </form>
     <select class="currencyList">
-        <option value="NULL" selected>Select C</option>
+        <option value="NULL" selected>Select Currency</option>
         <option value="ILS">Iraeli shekel🇮🇱</option>
         <option value="VND">Vietnam Dong🇻🇳</option>
         <option value="THB">Thai Baht🇹🇭</option>
@@ -38,11 +69,57 @@ body {
         <option value="HUF">Hungarian Forint🇭🇺</option>
         <option value="USD">US Dollars</option>    
     </select>
+
+    <form >
+        <input class="entryform" type="number" min="0" placeholder="Enter Amount" />
+    </form>
+
+    <form >
+        <input class="notes" type="text"  placeholder="Notes" />
+    </form>
+
     <button class="submitButton">Submit</button> 
 
-
     <div class="apioutput">
-        </div>
+    </div>
+
+    <ul class="logOutput">
+    </ul>
+</div>
+
+<div class="Buyer">
+    <hi>Buy Foreign Currency</hi>
+    <select class="buyerLocation">
+        <option value="NULL" selected>Select City</option>
+        <option value="Atlanta">Atlanta</option>
+        <option value="Boston">Boston</option>
+        <option value="Chicago">Chicago</option>
+        <option value="Miami">Miami</option>
+        <option value="Washington DC">Washington DC</option>
+        <option value="Bay Area">Bay Area</option>
+        <option value="New York">New York</option>
+        <option value="Seattle">Seattle</option>
+        <option value="Los Angeles">Los Angeles</option> 
+        <option value="Philadelphia">Philadelphia</option>    
+    </select>
+
+     <select class="buyerCurrencyList">
+        <option value="NULL" selected>Select Currency</option>
+        <option value="ILS">Iraeli shekel🇮🇱</option>
+        <option value="VND">Vietnam Dong🇻🇳</option>
+        <option value="THB">Thai Baht🇹🇭</option>
+        <option value="QAR">Qatari Rial🇶🇦</option>
+        <option value="BAM">Bosnian Mark🇧🇦</option>
+        <option value="TRY">Turkish Lira🇹🇷</option>
+        <option value="MMK">Burmese Kyat🇲🇲</option>
+        <option value="PEN">Peruvian Sol🇵🇪</option>
+        <option value="AUD">Austrialian Dollar🇦🇺</option>
+        <option value="AED">Emirati Dirham🇦🇪</option>
+        <option value="HUF">Hungarian Forint🇭🇺</option>
+        <option value="USD">US Dollars</option>    
+    </select>
+    <button class="buyerSubmitButton">Submit</button>
+</div>
 
 <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
 <script src="index.js"></script>

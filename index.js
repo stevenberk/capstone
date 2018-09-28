@@ -4,9 +4,13 @@ let maindiv = document.querySelector(".apioutput");
 let submitButton = document.querySelector('.submitButton');
 let currencyLog = document.querySelector('.currencyList');
 let entryForm = document.querySelector('.entryform')
+let logOutput = document.querySelector('.logOutput');
+let newLi = document.createElement('li');
+let newHOne = document.createElement('h1');
+let newPTage = document.createAttribute('p');
+let sellerCity = document.querySelector('.sellerLocation');
 
-
-let userimput = [];
+let userinput = [];
 
 submitButton.addEventListener("click", function(event) {
   event.preventDefault();
@@ -14,7 +18,7 @@ submitButton.addEventListener("click", function(event) {
 });
 
 function CalculateRate() {
-    if (currencyLog.value == "NULL" || entryForm.value < 1){
+    if (currencyLog.value == "NULL" || entryForm.value < 1 || sellerCity.value == "NULL"){
         maindiv.textContent = "Please make a valid selection"
     }else{
         fetch(URL + APIKEY)
@@ -29,20 +33,21 @@ function CalculateRate() {
             currencyLog.value == "THB" ||
             currencyLog.value == "MMK"){
                 maindiv.textContent = Math.round(exRate * entryForm.value);
-            pushToUserInput(parseFloat(entryForm.value), (Math.round(exRate * entryForm.value)), currencyLog.value, new Date());
+            pushToUserInput(parseFloat(entryForm.value), (Math.round(exRate * entryForm.value)), currencyLog.value, sellerCity.value, new Date());
             }else{
             maindiv.textContent = (exRate * entryForm.value).toFixed(2);
-            pushToUserInput(parseFloat(entryForm.value), parseFloat((exRate * entryForm.value).toFixed(2)), currencyLog.value, new Date());
+            pushToUserInput(parseFloat(entryForm.value), parseFloat((exRate * entryForm.value).toFixed(2)), sellerCity.value, currencyLog.value, new Date());
             }
-            function pushToUserInput(startingRate, rate, currency, date){
-                    userimput.push([startingRate, rate, currency, date]);
-                    console.log(userimput);
+            function pushToUserInput(startingRate, rateAtSubmission, currency, date){
+                    userinput.push(startingRate, rateAtSubmission, currency, date);
+                    console.log(userinput);
             }
            });
     }
 }
 
 
-       
+
+
 
        
