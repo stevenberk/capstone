@@ -10,7 +10,8 @@ let newHOne = document.createElement('h1');
 let newPTage = document.createAttribute('p');
 let sellerCity = document.querySelector('.sellerLocation');
 
-let userinput = [];
+//dumby data 
+let userinput = [[90, 3395, "THB", "Washington DC"], [150, 630, "ILS", "Boston"]];
 
 submitButton.addEventListener("click", function(event) {
   event.preventDefault();
@@ -33,14 +34,24 @@ function CalculateRate() {
             currencyLog.value == "THB" ||
             currencyLog.value == "MMK"){
                 maindiv.textContent = Math.round(exRate * entryForm.value);
-            pushToUserInput(parseFloat(entryForm.value), (Math.round(exRate * entryForm.value)), currencyLog.value, sellerCity.value, new Date());
+                    pushToUserInput(parseFloat(entryForm.value), 
+                        (Math.round(exRate * entryForm.value)), 
+                        currencyLog.value, 
+                        sellerCity.value, 
+                        // new Date()
+                    );
             }else{
             maindiv.textContent = (exRate * entryForm.value).toFixed(2);
-            pushToUserInput(parseFloat(entryForm.value), parseFloat((exRate * entryForm.value).toFixed(2)), sellerCity.value, currencyLog.value, new Date());
+                pushToUserInput(parseFloat(entryForm.value), 
+                    parseFloat((exRate * entryForm.value).toFixed(2)), 
+                    currencyLog.value, 
+                    sellerCity.value, 
+                    // new Date()
+                );
             }
-            function pushToUserInput(startingRate, rateAtSubmission, currency, date){
-                    userinput.push(startingRate, rateAtSubmission, currency, date);
-                    console.log(userinput);
+            function pushToUserInput(startingRate, rateAtSubmission, currency, location){
+                userinput.push([startingRate, rateAtSubmission, currency, location]);
+                console.log(userinput);
             }
            });
     }
