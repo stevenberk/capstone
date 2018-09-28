@@ -5,7 +5,6 @@ let submitButton = document.querySelector('.submitButton');
 let currencyLog = document.querySelector('.currencyList');
 let entryForm = document.querySelector('.entryform')
 let logOutput = document.querySelector('.logOutput');
-let newLi = document.createElement('li');
 let newHOne = document.createElement('h1');
 let newPTage = document.createAttribute('p');
 let sellerCity = document.querySelector('.sellerLocation');
@@ -51,12 +50,22 @@ function CalculateRate() {
             }
             function pushToUserInput(startingRate, rateAtSubmission, currency, location){
                 userinput.push([startingRate, rateAtSubmission, currency, location]);
-                console.log(userinput);
+                MakeLog(userinput);
             }
            });
     }
 }
-
+let MakeLog = (userinput) =>{
+    for(i = 0; i < userinput.length; i++){
+        logOutput;
+        let newDiv = document.createElement('div');
+        newDiv.textContent = `Cost: ${userinput[i][0]} 
+        Rate at Submit: ${userinput[i][1]} 
+        Currency: ${userinput[i][2]} 
+        Location: ${userinput[i][3]}`;
+        logOutput.appendChild(newDiv);
+    }
+}
 
 
 
