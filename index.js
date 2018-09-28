@@ -1,5 +1,6 @@
 let URL = 'http://data.fixer.io/api/latest?access_key=';
 
+//DOM elements
 let maindiv = document.querySelector(".apioutput");
 let submitButton = document.querySelector('.submitButton');
 let buyerSubmitButton = document.querySelector('.buyerSubmitButton');
@@ -15,6 +16,8 @@ let sellerCity = document.querySelector('.sellerLocation');
 //dummy data 
 let userinput = [[90, 3395, "THB", "Washington DC"], [150, 630, "ILS", "Boston"]];
 
+//when a buyer search is submitted, after the "if" statement filters out invalid searches,
+//the displayAvailableMoney function is called
 buyerSubmitButton.addEventListener("click", function(event){
     event.preventDefault();
     if (buyerCurrencyList.value == "NULL" || buyerLocation.value == "NULL"){
@@ -23,39 +26,42 @@ buyerSubmitButton.addEventListener("click", function(event){
         newDiv.textContent = "Please make a valid selection";
         logOutput.appendChild(newDiv)
     }else{
-    DisplayAvailableMoney();
+    displayAvailableMoney();
     }
 })
 
-
-
-let DisplayAvailableMoney = () =>{
+//when called, this function filters the userinput array and returns a new array with 
+//items that only have the items that meet the buyer's currency and location criteria
+//this new array is then passed through a for loop that renders it's content to the DOM
+//if there are no available matches, an "if" statement renders "Nothing available right now" to the DOM
+let displayAvailableMoney = () =>{
   let filteredArray = userinput.filter(userinput =>(buyerCurrencyList.value == userinput[2] && buyerLocation.value == userinput[3]));
     if (filteredArray.length < 1){
         logOutput;
         let newDiv = document.createElement('div');
         newDiv.textContent = "Nothing available right now";
         logOutput.appendChild(newDiv);
-        console.log("none here");
     }else{
         for(i = 0; i < filteredArray.length; i++){
             logOutput;
             let newDiv = document.createElement('div');
-            newDiv.textContent = `Cost: ${filteredArray[i][0]} 
-            Rate at Submit: ${filteredArray[i][1]} 
+            newDiv.textContent = `Amount: ${filteredArray[i][0]} 
+            Rate at Submission: ${filteredArray[i][1]} 
             Currency: ${filteredArray[i][2]} 
             Location: ${filteredArray[i][3]}`;
             logOutput.appendChild(newDiv);
         }
     }
 }
-
+// When a seller clicks the subit button, the CalculateRate function is called
 submitButton.addEventListener("click", function(event) {
   event.preventDefault();
-  CalculateRate()
+  calculateRate()
 })
 
-function CalculateRate() {
+//This function first filters out invalid seller submissions, then it makes an API request and 
+//returns the exchange value. Then is pushes all of the seller's criteria to the userinput array
+function calculateRate() {
     if (currencyLog.value == "NULL" || entryForm.value < 1 || sellerCity.value == "NULL"){
         maindiv.textContent = "Please make a valid selection"
     }else{
@@ -92,8 +98,3 @@ function CalculateRate() {
            });
     }
 }
-
-
-
-
-       
