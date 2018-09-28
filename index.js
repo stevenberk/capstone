@@ -12,23 +12,32 @@ let logOutput = document.querySelector('.logOutput');
 let newHOne = document.createElement('h1');
 let newPTage = document.createAttribute('p');
 let sellerCity = document.querySelector('.sellerLocation');
+let newDiv = document.querySelector('.newDiv')
 
 //dummy data 
 let userinput = [[90, 3395, "THB", "Washington DC"], [150, 630, "ILS", "Boston"]];
 
 //when a buyer search is submitted, after the "if" statement filters out invalid searches,
-//the displayAvailableMoney function is called
+//the displayAvailableMoney function is called, Additionally, if there are existing outputs from the previous buyer searches,
+//then a function is called to removed the child elements in the output div (removes existing searches)
 buyerSubmitButton.addEventListener("click", function(event){
     event.preventDefault();
+    if (logOutput.childNodes.length >= 0){
+        removeChild();
+    }
     if (buyerCurrencyList.value == "NULL" || buyerLocation.value == "NULL"){
         logOutput;
         let newDiv = document.createElement('div');
         newDiv.textContent = "Please make a valid selection";
         logOutput.appendChild(newDiv)
     }else{
-    displayAvailableMoney();
+        displayAvailableMoney();
     }
 })
+//this function is called if the number of childnodes in the output div is greater than zero, it clears existing searches in the DOM
+let removeChild = () => {
+    logOutput.removeChild(logOutput.childNodes[0]);
+}
 
 //when called, this function filters the userinput array and returns a new array with 
 //items that only have the items that meet the buyer's currency and location criteria
@@ -72,25 +81,25 @@ function calculateRate() {
             //this "if" statment rounds to nearest whole number for currencies that don't use units less than one,
             //and round to two decimal places if units between zero and one are used in practice.
             if (currencyLog.value == "VND" || 
-            currencyLog.value == "HUF" || 
-            currencyLog.value == "ILS" ||
-            currencyLog.value == "THB" ||
-            currencyLog.value == "MMK"){
-                maindiv.textContent = Math.round(exRate * entryForm.value);
+                currencyLog.value == "HUF" || 
+                currencyLog.value == "ILS" ||
+                currencyLog.value == "THB" ||
+                currencyLog.value == "MMK"){
+                    maindiv.textContent = Math.round(exRate * entryForm.value);
+                        pushToUserInput(parseFloat(entryForm.value), 
+                            (Math.round(exRate * entryForm.value)), 
+                            currencyLog.value, 
+                            sellerCity.value, 
+                            // new Date()
+                        );
+            }else{
+                maindiv.textContent = (exRate * entryForm.value).toFixed(2);
                     pushToUserInput(parseFloat(entryForm.value), 
-                        (Math.round(exRate * entryForm.value)), 
+                        parseFloat((exRate * entryForm.value).toFixed(2)), 
                         currencyLog.value, 
                         sellerCity.value, 
                         // new Date()
                     );
-            }else{
-            maindiv.textContent = (exRate * entryForm.value).toFixed(2);
-                pushToUserInput(parseFloat(entryForm.value), 
-                    parseFloat((exRate * entryForm.value).toFixed(2)), 
-                    currencyLog.value, 
-                    sellerCity.value, 
-                    // new Date()
-                );
             }
             function pushToUserInput(startingRate, rateAtSubmission, currency, location){
                 userinput.push([startingRate, rateAtSubmission, currency, location]);
