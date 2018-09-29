@@ -34,6 +34,7 @@ buyerSubmitButton.addEventListener("click", function(event){
         displayAvailableMoney();
     }
 })
+
 //this function is called if the number of childnodes in the output div is greater than zero, it clears existing searches in the DOM
 let removeChild = () => {
     logOutput.removeChild(logOutput.childNodes[0]);
@@ -83,6 +84,7 @@ function calculateRate() {
             if (currencyLog.value == "VND" || 
                 currencyLog.value == "HUF" || 
                 currencyLog.value == "ILS" ||
+                currencyLog.value == "JPY" ||
                 currencyLog.value == "THB" ||
                 currencyLog.value == "MMK"){
                     maindiv.textContent = Math.round(exRate * entryForm.value);

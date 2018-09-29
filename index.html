@@ -12,6 +12,8 @@ body {
     font-family: avenir;
     display: flex;
     flex-direction: row;
+    /* background: -webkit-radial-gradient(circle, rgba(0,183,234,1) 0%,rgba(255,0,203,1) 100%); Chrome10-25,Safari5.1-6 */
+    
    
 }
 .Buyer {
@@ -31,18 +33,19 @@ input{
 
 </style>
 <body>
-
 <div class="Seller">
     <hi> Post foreign currency to sell</hi>
     <select class="sellerLocation">
-        <option value="NULL" selected>Select City</option>
+        <option value="NULL" selected>Select Location</option>
         <option value="Atlanta">Atlanta</option>
         <option value="Boston">Boston</option>
         <option value="Chicago">Chicago</option>
+        <option value="Dallas">Dallas</option>
         <option value="Miami">Miami</option>
         <option value="Washington DC">Washington DC</option>
         <option value="Bay Area">Bay Area</option>
         <option value="New York">New York</option>
+        <option value="Houston">Houston</option>
         <option value="Seattle">Seattle</option>
         <option value="Los Angeles">Los Angeles</option> 
         <option value="Philadelphia">Philadelphia</option>    
@@ -55,8 +58,9 @@ input{
     </form>
     <select class="currencyList">
         <option value="NULL" selected>Select Currency</option>
+        <option value="CAD">Canadian Dollar (CAD)</option>
         <option value="THB">Thai Baht (THB)</option>
-        <option value="QAR">Qatari Rial (QAR)</option>
+        <option value="JPY">Japanese Yen (JPY)</option>
         <option value="BAM">Bosnian Mark (BAM)</option>
         <option value="TRY">Turkish Lira (TRY)</option>
         <option value="ILS">Israeli Shekel (ILS)</option>
@@ -81,20 +85,20 @@ input{
 
     <div class="apioutput">
     </div>
-
-    
 </div>
 
 <div class="Buyer">
     <hi>Browse foreign currencies</hi>
     <select class="buyerLocation">
-        <option value="NULL" selected>Select City</option>
+        <option value="NULL" selected>Select Location</option>
         <option value="Atlanta">Atlanta</option>
         <option value="Boston">Boston</option>
         <option value="Chicago">Chicago</option>
+        <option value="Dallas">Dallas</option>
         <option value="Miami">Miami</option>
         <option value="Washington DC">Washington DC</option>
         <option value="Bay Area">Bay Area</option>
+        <option value="Houston">Houston</option>
         <option value="New York">New York</option>
         <option value="Seattle">Seattle</option>
         <option value="Los Angeles">Los Angeles</option> 
@@ -103,7 +107,8 @@ input{
 
      <select class="buyerCurrencyList">
         <option value="NULL" selected>Select Currency</option>
-        <option value="QAR">Qatari Rial (QAR)</option>
+        <option value="CAD">Canadian Dollar (CAD)</option>
+        <option value="JPY">Japanese Yen (JPY)</option>
         <option value="ILS">Israeli shekel (ILS)</option>
         <option value="BAM">Bosnian Mark (BAM)</option>
         <option value="TRY">Turkish Lira (TRY)</option>
@@ -121,9 +126,6 @@ input{
        
     </div>
 </div>
-
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
 <script src="index.js"></script>
 </body>
 </html>
-
