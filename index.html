@@ -8,13 +8,11 @@
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
 </head>
 <style>
+@media screen and (min-width: 376px) {
 body {
     font-family: avenir;
     display: flex;
-    flex-direction: row;
-    /* background: -webkit-radial-gradient(circle, rgba(0,183,234,1) 0%,rgba(255,0,203,1) 100%); Chrome10-25,Safari5.1-6 */
-    
-   
+    flex-direction: row;   
 }
 .Buyer {
     display: flex;
@@ -24,13 +22,30 @@ body {
 .Seller {
     display: flex;
     flex-direction: column;
-    width: 220px;
     margin: .5em;
 }
 input{
     width: 100%;
 }
-
+}
+@media screen and (max-width: 375px) {
+body {
+    font-family: avenir;
+    display: flex;
+    flex-direction: column;
+}
+.Buyer {
+    display: flex;
+    flex-direction: column;  
+}
+.Seller {
+    display: flex;
+    flex-direction: column;
+}
+input{
+    width: 100%;
+}
+}
 </style>
 <body>
 <div class="Seller">
