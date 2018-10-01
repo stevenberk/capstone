@@ -1,5 +1,5 @@
 let URL = 'http://data.fixer.io/api/latest?access_key=';
-
+let APIKEY = "ae0e9fd8fd30304289dabd47c43dc2d6";
 //DOM elements
 let maindiv = document.querySelector(".apioutput");
 let submitButton = document.querySelector('.submitButton');
@@ -7,18 +7,46 @@ let buyerSubmitButton = document.querySelector('.buyerSubmitButton');
 let buyerLocation = document.querySelector('.buyerLocation');
 let buyerCurrencyList = document.querySelector('.buyerCurrencyList');
 let currencyLog = document.querySelector('.currencyList');
-let entryForm = document.querySelector('.entryform')
+let entryForm = document.querySelector('.entryform');
 let logOutput = document.querySelector('.logOutput');
 let newHOne = document.createElement('h1');
 let newPTage = document.createAttribute('p');
 let sellerCity = document.querySelector('.sellerLocation');
-let newDiv = document.querySelector('.newDiv')
+let newDiv = document.querySelector('.newDiv');
+//
+let loginPage = document.querySelector('.loginPage');
+let loginButton = document.querySelector('.loginButton');
+let buyOrSellPage = document.querySelector('.buyOrSellPage');
+let buyButton = document.querySelector('.buyButton');
+let sellButton = document.querySelector('.sellButton');
+let Seller = document.querySelector('.Seller');
+let Buyer = document.querySelector('.Buyer');
 
 //dummy data 
 let userinput = [[90, 3395, "THB", "Washington DC"], [150, 630, "ILS", "Boston"]];
 
-//when a buyer search is submitted, after the "if" statement filters out invalid searches,
-//the displayAvailableMoney function is called, Additionally, if there are existing outputs from the previous buyer searches,
+//login page -> page with buy or sell buttons
+loginButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    loginPage.classList.add('hide');
+    buyOrSellPage.classList.remove('hide');
+})
+//buy button shows page where buyer can search for available currencies
+buyButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    buyOrSellPage.classList.add('hide');
+    Buyer.classList.remove('hide');
+})
+//sell button shows page where sell can post
+sellButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    buyOrSellPage.classList.add('hide');
+    Seller.classList.remove('hide');
+})
+
+
+//when a buyer clicks search, the "if" statement filters out invalid searches,
+//then displayAvailableMoney function is called, Additionally, if there are existing outputs from the previous buyer searches,
 //then a function is called to removed the child elements in the output div (removes existing searches)
 buyerSubmitButton.addEventListener("click", function(event){
     event.preventDefault();

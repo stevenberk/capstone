@@ -8,7 +8,9 @@
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
 </head>
 <style>
-@media screen and (min-width: 376px) {
+
+
+@media screen and (min-width: 376px) { 
 body {
     font-family: avenir;
     display: flex;
@@ -24,11 +26,18 @@ body {
     flex-direction: column;
     margin: .5em;
 }
+.hide {
+    display: none;
+}
 input{
     width: 100%;
 }
 }
+
 @media screen and (max-width: 375px) {
+.hide {
+    display: none;
+}
 body {
     font-family: avenir;
     display: flex;
@@ -48,7 +57,20 @@ input{
 }
 </style>
 <body>
-<div class="Seller">
+<div class="loginPage" >
+    <form >
+        <input class="usernameEmail" type="text"  placeholder="Email" />
+    </form>
+    <form >
+        <input class="password" type="password"  placeholder="password" />
+    </form>
+    <button class="loginButton">login</button>
+</div>
+<div class="hide buyOrSellPage">    
+    <button class="buyButton">Buy</button>
+    <button class="sellButton">Sell</button>
+</div>  
+<div class="hide Seller">
     <hi> Post foreign currency to sell</hi>
     <select class="sellerLocation">
         <option value="NULL" selected>Select Location</option>
@@ -102,7 +124,7 @@ input{
     </div>
 </div>
 
-<div class="Buyer">
+<div class="hide Buyer">
     <hi>Browse foreign currencies</hi>
     <select class="buyerLocation">
         <option value="NULL" selected>Select Location</option>
