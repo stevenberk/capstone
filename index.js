@@ -1,5 +1,5 @@
 let URL = 'http://data.fixer.io/api/latest?access_key=';
-let APIKEY = "ae0e9fd8fd30304289dabd47c43dc2d6";
+
 //DOM elements
 let maindiv = document.querySelector(".apioutput");
 let submitButton = document.querySelector('.submitButton');
