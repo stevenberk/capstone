@@ -2,7 +2,7 @@ import React from "react";
 import buyerSearchPage from './buyerSearchPage';
 import SellerPostPage from './sellerPostPage';
 import Login from './login';
-import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
+import { HashRouter, Route, Link, Redirect } from "react-router-dom";
 import About from './About';
 import Accountpage from './Accountpage';
 
@@ -14,7 +14,7 @@ class Authenticated extends React.Component{
 }
 
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <div className="mainpagecontainer">
       <div className="navbar">
         <div className="nav-item">
@@ -37,7 +37,7 @@ const App = () => (
       <Route path="/buy" component={withAuthentication(buyerSearchPage)} />
       <Route path="/sell" component={withAuthentication(SellerPostPage)} />
     </div>
-  </BrowserRouter> 
+  </HashRouter> 
 )
 
 
