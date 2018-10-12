@@ -6,6 +6,9 @@ const signature = "secretKey";
 const pg = require('pg-promise')();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const static = express.static;
+app.use(static('../capstone-app/build'));
+
 
 //COORS stuff
 let allowCORS = (req, res, next) => {
@@ -31,7 +34,7 @@ const dbConfig = {
 const db = pg(dbConfig);
 
 //most pages use isloggedin to test for auth
-app.get("/isloggedin", verifyToken, (req, res)=> {
+app.get("/api/isloggedin", verifyToken, (req, res)=> {
   let payload ;
   try{
    payload = jwt.verify(req.token, signature)
@@ -45,14 +48,14 @@ app.get("/isloggedin", verifyToken, (req, res)=> {
 })
 
 //seller submissions 
-app.post("/sellersubmissions", (req, res)=> {
+app.post("/api/sellersubmissions", (req, res)=> {
   db.query(`INSERT INTO posts (amount,currency,location,valueinusd,selleremail,sellername,sellerid) VALUES
   ('${req.body.amount}','${req.body.currency}','${req.body.location}','${req.body.valueinusd}','${req.body.selleremail}','${req.body.sellername}','${req.body.sellerid}') RETURNING postid;`)
   .then(()=> {res.send("ok")})
 })
 
 //used to seed state in login page 
-app.post('/seedaccountpage', (req, res) =>{
+app.post('/api/seedaccountpage', (req, res) =>{
   db.query(`SELECT * FROM posts WHERE selleremail = '${req.body.email}';`)
   .then((results) => {
     res.send(JSON.stringify(results))}
@@ -60,7 +63,7 @@ app.post('/seedaccountpage', (req, res) =>{
 })
 
 // buyer page search querries 
-app.post("/querysubmissions", (req, res) => {
+app.post("/api/querysubmissions", (req, res) => {
   db.query(`SELECT * FROM posts  WHERE location = '${req.body.location}'  AND currency = '${req.body.currency}';`)
   .then((results) => {
     res.send(JSON.stringify(results))}
@@ -69,13 +72,13 @@ app.post("/querysubmissions", (req, res) => {
 
 
 //delete a posting
-app.post('/deletepost', (req, res) =>{
+app.post('/api/deletepost', (req, res) =>{
   db.query(`DELETE FROM posts WHERE postid ='${req.body.id}' ;`)
     .then(()=>res.send("deleted"))
 })
 
 //add new user from signup page 
-app.post('/createuser', (req, res) => {
+app.post('/api/createuser', (req, res) => {
   bcrypt.hash(req.body.password, saltRounds)
    .then(function(hashedpassword) {
    db.query(`INSERT INTO users (firstname,lastname,email,password) VALUES
@@ -86,7 +89,7 @@ app.post('/createuser', (req, res) => {
  
 
 //// Login Auth 
-app.post("/querylogin", (req, res) => {
+app.post("/api/querylogin", (req, res) => {
   db.one(`SELECT password FROM users WHERE email = '${req.body.email}';`).then((password)=>{
     bcrypt.compare(req.body.password, password.password).then(function(result) {
       if(result === true){
