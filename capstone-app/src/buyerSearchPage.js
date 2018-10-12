@@ -92,7 +92,7 @@ let displayIfLoggedIn = <div className="submaincontainter transition" >
 
     <button className="btn btn-primary btn-sm" onClick={(event)=>{
         //this does a PostgreSQL SELECT
-        axios.post("http://localhost:3006/querysubmissions", {
+        axios.post(`http://${process.env.REACT_APP_FETCHURL}:3006/querysubmissions`, {
             location: this.state.SelectedLocation,
             currency: this.state.SelectedCurrency
         }

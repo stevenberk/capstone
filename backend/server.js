@@ -24,7 +24,8 @@ const dbConfig = {
   host: 'localhost',
   port: 5432,
   database: 'capstone',
-  user: 'stevenberk'
+  user: process.env.DB_USERNAME, 
+  password: process.env.DB_PASSWORD
 };
 
 const db = pg(dbConfig);

@@ -21,7 +21,7 @@ class Youraccount extends React.Component{
         ],
         loginFlag: true 
     }
-    axios.get('http://localhost:3006/posts')
+    axios.get(`http://${process.env.REACT_APP_FETCHURL}:3006/posts`)
         .then(response => {
             this.setState({
             SearchResults : response["data"]

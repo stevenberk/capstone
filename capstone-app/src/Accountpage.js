@@ -25,7 +25,7 @@ class Accountpage extends React.Component{
         
       
     }  
-        axios.post('http://localhost:3006/seedaccountpage',
+        axios.post(`http://${process.env.REACT_APP_FETCHURL}:3006/seedaccountpage`,
     {
         email:localStorage.getItem("email")
     })   
@@ -59,11 +59,11 @@ render(){
           <p>Your Location: {post.location}</p>
           {/* <p>Notes: {post.notes}</p> */}
           <button className="btn btn-link " onClick={(event)=>{
-             axios.post('http://localhost:3006/deletepost',  
+             axios.post(`http://${process.env.REACT_APP_FETCHURL}:3006/deletepost`,  
                {id:post.postid}
               )
                .then(()=>{
-                 axios.post('http://localhost:3006/seedaccountpage',
+                 axios.post(`http://${process.env.REACT_APP_FETCHURL}:3006/seedaccountpage`,
                {
                  email:localStorage.getItem("email")
                 }
