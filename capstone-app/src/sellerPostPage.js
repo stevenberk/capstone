@@ -116,7 +116,7 @@ let submitForms =
             this.state.sellerid]; 
             this.setState({SubmittedPosts:this.state.SubmittedPosts.concat([submissionContentArray])}); 
             
-        axios.post(`http://${process.env.REACT_APP_FETCHURL}:3006/sellersubmissions`,
+        axios.post(`http://${process.env.REACT_APP_FETCHURL}/sellersubmissions`,
             {
             amount: submissionContentArray[2],
             currency: submissionContentArray[1],

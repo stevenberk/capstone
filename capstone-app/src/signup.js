@@ -36,7 +36,7 @@ let SignupForms =
     <button className="btn btn-primary btn-sm" onClick={(event)=>{
         if (this.state.password === this.state.ConfirmPassword && this.state.email !== "null"){
             //this does a PostgreSQL INSTERT
-            axios.post(`http://${process.env.REACT_APP_FETCHURL}:3006/createuser`, {
+            axios.post(`http://${process.env.REACT_APP_FETCHURL}/createuser`, {
                 email: this.state.email,
                 password: this.state.password,
                 firstname: this.state.firstname,

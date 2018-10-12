@@ -30,7 +30,7 @@ class Login extends React.Component{
  
      if(localStorage.getItem("token")){
          this.setState({loginFlag: true})
-         axios.post(`http://${process.env.REACT_APP_FETCHURL}:3006/seedaccountpage`,
+         axios.post(`http://${process.env.REACT_APP_FETCHURL}/seedaccountpage`,
             {
            email:localStorage.getItem("email")
             }).then((response)=>{ 
@@ -57,7 +57,7 @@ let loginForms =
     <button className="btn btn-primary btn-sm spaceAlittle" onClick={(event)=>{
 
 
-        axios.post(`http://${process.env.REACT_APP_FETCHURL}:3006/querylogin`, {
+        axios.post(`http://${process.env.REACT_APP_FETCHURL}/querylogin`, {
             email: this.state.email,
             password: this.state.password
         }).then((response)=> {
