@@ -28,12 +28,12 @@ let SignupForms =
         
         <input className="buyerdropdowns" type="text"  placeholder="First Name" onChange={(event)=>{this.setState({firstname:event.target.value})}}/>
         <input className="buyerdropdowns" type="text"  placeholder="Last Name" onChange={(event)=>{this.setState({lastname:event.target.value})}}/>
-        <input className="buyerdropdowns" type="text" placeholder="Email" onChange={(event)=>{this.setState({email:event.target.value})}}/>
+        <input className="buyerdropdowns" type="email" placeholder="Email" onChange={(event)=>{this.setState({email:event.target.value})}}/>
         <input className="buyerdropdowns" type="password" placeholder="Password" onChange={(event)=>{this.setState({password:event.target.value})}}/>
         <input className="buyerdropdowns" type="password" placeholder="Confirm Password" onChange={(event)=>{this.setState({ConfirmPassword:event.target.value})}}/>
-    </form>
     
-    <button className="btn btn-primary btn-sm" onClick={(event)=>{
+    
+    <button className="btn btn-primary btn-sm spaceAlittle" onClick={(event)=>{
         if (this.state.password === this.state.ConfirmPassword && this.state.email !== "null"){
             //this does a PostgreSQL INSTERT
             axios.post(`http://${process.env.REACT_APP_FETCHURL}/createuser`, {
@@ -49,6 +49,7 @@ let SignupForms =
     }}>
         Sign up!
     </button>
+    </form>
     </div>
 </div>
 let GoToAccountPage =

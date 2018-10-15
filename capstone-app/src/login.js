@@ -49,8 +49,8 @@ let loginForms =
     <h1 className="pageheader">Please Log In</h1>
         <form className="buyerdropdowns spaceAlittle">
             
-            <input className="spaceAlittle" type="text" placeholder="Email" onChange={(event)=>{this.setState({email:event.target.value})}}/>
-            <input  className="spaceAlittle" type="password" placeholder="Password" onChange={(event)=>{this.setState({password:event.target.value})}}/>
+            <input className=" spaceAlittle" type="email" placeholder="Email" onChange={(event)=>{this.setState({email:event.target.value})}}/>
+            <input  className=" spaceAlittle" type="password" placeholder="Password" onChange={(event)=>{this.setState({password:event.target.value})}}/>
         </form>
     
     
@@ -78,7 +78,7 @@ let loginForms =
     <button className="btn btn-primary btn-sm spaceAlittle" onClick={(click)=>{
         this.setState({signupFlag:true})
     }}>
-        signup
+        Signup
     </button>
     <div >
     </div>

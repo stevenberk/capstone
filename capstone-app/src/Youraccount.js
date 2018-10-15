@@ -32,7 +32,7 @@ class Youraccount extends React.Component{
     render(){
 
         return(
-            <div className="transition">
+            <div className="submaincontainter transition">
                 <div className="pageheader">
                 <h1 >Welcome, thanks for signing up!</h1>
                 </div>
