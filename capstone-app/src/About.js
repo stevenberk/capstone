@@ -12,19 +12,22 @@ render(){
     return(
         <div className="submaincontainter transition">
         <h1 className="pageheader">Exact Change</h1>
-        <p>Welcome to my capstone web app! 
-            {/* The logistics of planning a trip to Cuba in 2018 is unlike planning a trip to anywhere else in the world. One major hurdle of traveling to Cuba in this day and age is accessing local currency to spend on the island. US debit and credit cards simply don't work in Cuba, and exchanging US dollars for local currency in Cuba is at best, time consuming and prohibitively expensive (long lines, double-digit commission fees, illegal street exchangers). The best option for American travlers visiting Cuba: bring enough money in a third currency to exchange in Cuba. Faced with an upcoming trip to Cuba for Thanksgiving 2018 */}
-        </p>
-        <h1 className="pageheader">Technologies Used:</h1>
-        <ul>
+        <div className="instructioncontainer">
+        <h4 className="pageheader">Don't pay exchange fees and commissions. Buy and Sell foreign currency in your area for the exact exchange rate!</h4>
+        </div>
+        <h2 className="pageheader underliner">How it works:</h2>
+        <div className="instructioncontainer">
+            <h5 className="pageheader">1. Create an account</h5>
+            <h5 className="pageheader">2. Before your trip, browse and purchase foreign banknotes</h5>
+            <h5 className="pageheader">3. After you return, post and sell your unused foreign currency to other travelers</h5>
+        </div>
+        <h2 className="pageheader underliner">Technologies Used:</h2>
+        <ul className="textcolor">
             <li>
                 React.js
             </li>
             <li>
                 CSS
-            </li>
-            <li>
-                Bootstrap
             </li>
             <li>
                 Responsive Design

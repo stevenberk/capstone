@@ -22,10 +22,10 @@ class Signup extends React.Component{
      
 let SignupForms =        
 <div>
-    <div className="submaincontainter transition">
+    <div className="submaincontainter transition ">
+    
+    <form className="buyersearchmenucontainer instructioncontainer">
     <h1 className="pageheader">Create an Account!</h1>
-    <form className="buyersearchmenucontainer">
-        
         <input className="buyerdropdowns" type="text"  placeholder="First Name" onChange={(event)=>{this.setState({firstname:event.target.value})}}/>
         <input className="buyerdropdowns" type="text"  placeholder="Last Name" onChange={(event)=>{this.setState({lastname:event.target.value})}}/>
         <input className="buyerdropdowns" type="email" placeholder="Email" onChange={(event)=>{this.setState({email:event.target.value})}}/>

@@ -62,13 +62,14 @@ let logout=()=>{
 }
 
 let submitForms = 
-<div className="submaincontainter transition">
+<div className="submaincontainter  transition">
+<div className="buyersearchmenucontainer ">
     <div className="pageheader">
     <h1> 
         Post banknotes 
     </h1>
     </div>
-    <div className="buyersearchmenucontainer">
+    
     <select className="buyerdropdowns" value={this.state.SelectedLocation} onChange={(event)=>{this.setState({SelectedLocation:event.target.value})}} >
         <option value="NULL">Select Location</option>
         <option value="Atlanta">Atlanta</option>

@@ -36,7 +36,7 @@ class Accountpage extends React.Component{
 render(){
   let ArrayMapperRenderer = (props)=>
     <div  className="submaincontainter ">
-    <div className="pageheader">
+    <div className="pageheader ">
     <h1>Your banknote submissions:</h1>
     </div>
     <button className="btn btn-link" onClick={(event)=>{

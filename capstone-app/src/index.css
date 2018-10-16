@@ -18,9 +18,13 @@ html, body{
   align-self: center;
 }
 
+.underliner{
+  text-decoration: underline;
+}
+
 
 .submaincontainter{
-  /* position: inherit; */
+ 
   display:  flex;
   flex-direction: column;
   align-items: center;
@@ -32,6 +36,10 @@ html, body{
 
   
 
+}
+
+.textcolor{
+  color: darkcyan;
 }
 
 .darkcyan {
@@ -63,8 +71,6 @@ html, body{
   
 }
 
-
-/* search drop downs for buyer searh page */
 .buyerdropdowns{
   display: flex;
   flex-direction: column;
@@ -115,8 +121,7 @@ html, body{
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  border: 2px solid darkcyan;
-  border-radius: 2px;
+  border-radius: 4px;
   width: 12rem;
   height: 11rem;
   text-align: center;
@@ -124,7 +129,7 @@ html, body{
   line-height: -2;
   color: darkcyan;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  background-color: white;
+  background-color: whitesmoke;
 }
 
 .merchcard:hover {
@@ -137,11 +142,25 @@ html, body{
   border-bottom: solid;
   height: 60%;
   word-wrap: break-word;
+  
 }
 
 .merchcardsubheader{
   overflow-y:scroll;
   height: 40%;
+  background-color: gainsboro;
+  
+}
+
+
+.instructioncontainer{
+  margin: 1em;
+  padding: .5em;
+  background-color:whitesmoke;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  max-width: 800px 
+ 
 }
 
 @media screen and (min-width: 321px) and (max-width: 420px) {
@@ -160,13 +179,16 @@ html, body{
     height: auto;
     text-align: center;
     margin: .2em;
+    /* border: 2px solid darkcyan; */
+    border-radius: 4px;
   }
 
   .merchcardcontainer{
     display: flex;
     flex-direction: row;
-    padding-left: 1%;
-    padding-right: 1%;
+    width: 92%
+    /* padding-left: 1%;
+    padding-right: 1%; */
   }
 
   .buyerdropdowns{
@@ -197,8 +219,13 @@ html, body{
     height: 2.5em;
   }
 
+  .instructioncontainer{
+   
+   width: 90%;
+   margin: 0;
 
-
+   
+  }
 
 }
 
@@ -238,7 +265,7 @@ p {
   border-bottom: solid;
   justify-content: space-evenly;
   width: 100%;
-  background-color: white;
+  background-color: whitesmoke;
   color: darkcyan;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
