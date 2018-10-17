@@ -21,37 +21,9 @@ render(){
             <h5 className="pageheader">2. Before your trip, browse and purchase foreign banknotes</h5>
             <h5 className="pageheader">3. After you return, post and sell your unused foreign currency to other travelers</h5>
         </div>
-        <h2 className="pageheader underliner">Technologies Used:</h2>
-        <ul className="textcolor">
-            <li>
-                React.js
-            </li>
-            <li>
-                CSS
-            </li>
-            <li>
-                Responsive Design
-            </li>
-            <li>
-                Node.js 
-            </li>
-            <li>
-                JSON Web Tokens
-            </li>
-            <li>
-                Bcrypt
-            </li>
-            <li>
-                PostgreSQL 
-            </li>
-            <li>
-                AWS 
-            </li>
-            <li>
             <a href="https://github.com/stevenberk/Capstone">GitHub repo</a>
-            </li>
-        </ul>
-       
+            <a href="https://stevenberk.github.io">Resume</a>
+      
         </div>
     )
 }
