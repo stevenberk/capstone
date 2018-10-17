@@ -17,4 +17,13 @@ Possible improvements:
 4. Google Map's API integration
 5. Major social media site integration (connecting an Exact Change account with a user's Facebook, Twitter, Instagram accounts)
 
-
+Technologies Used:
+1. React.js
+2. CSS
+3. Bootstrap
+4. Responsive Design
+5. Node.js
+6. JSON web tokens
+7. PostgreSQL
+8. Amazon Web Service
+9. GitHub
