@@ -84,15 +84,15 @@ let submitForms =
     </select>
     <select className="buyerdropdowns" value={this.state.SelectedCurrency} onChange={(event)=>{this.setState({SelectedCurrency:event.target.value})}} >
         <option value="NULL">Select Currency</option>
-        <option value="CAD">Canadian Dollars (CAD)</option>
-        <option value="EUR">Euros (EUR)</option>
-        <option value="GBP">GB Pounds (GBP)</option>
-        <option value="JPY">Japanese Yen (JPY)</option> 
-        <option value="MXN">Mexican Peso (MXN)</option>
-        <option value="CUC">Cuban Convertible Peso (CUC)</option>
-        <option value="AUD">Australian Dollar (AUD)</option> 
-        <option value="THB">Thai Baht (THB)</option>
-        <option value="CHF">Swiss Franc (CHF)</option>    
+        <option value=".75">Canadian Dollars (CAD)</option>
+        <option value="1.13">Euros (EUR)</option>
+        <option value="1.26">GB Pounds (GBP)</option>
+        <option value="0.008801">Japanese Yen (JPY)</option> 
+        <option value="0.049338">Mexican Peso (MXN)</option>
+        <option value="1">Cuban Convertible Peso (CUC)</option>
+        <option value="0.722489">Australian Dollar (AUD)</option> 
+        <option value="0.030553">Thai Baht (THB)</option>
+        <option value="1.006467">Swiss Franc (CHF)</option>    
     </select>
       
     <form   className="buyerdropdowns" value={this.state.Amount} onChange={(event)=>{this.setState({Amount:event.target.value})}}>
