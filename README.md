@@ -5,7 +5,7 @@ Exact Change is a peer-to-peer currency exchange web app where users can create 
 
 The front end logic was made in React.js, with each page having its own component. The UI was designed with a "mobile-first" approach, each page smoothly transitions between devices of different sizes, and no features or functionalities are lost between mobile and desktop. A clean, bespoke design was achieved with a minimal amount of Bootstrap elements. As for 3d party APIs, fixer.io's exchange rate API is used to calculate the exact exchange rate into US dollars for each submission. 
 
-**Due to Fixer's API user fees, After December 31st 2018 there will be a fixed exchange rate and will not update without manual changes**
+**Due to Fixer.io's API subscription fees, After December 31st 2018 there will be a fixed exchange rate that will not update without manual changes**
 
 Exact Change's backend constists of a single Node server and a two-tabled PostgreSQL database. When a user signs up for an account, Bcrypt creates a hashed password for safe storage in the Users table. The other table is the Posts table, as the name implies, this table is for storing seller submissions, the seller's User Id value is used to connect the post with the seller when rendering a list of available posts from a buyer search. Authentication is fulfilled with JSON web tokens. 
 
